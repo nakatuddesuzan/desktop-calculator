@@ -10,6 +10,7 @@ from PyQt5.QtWidgets import (QApplication,
                              QDialog,
                              QVBoxLayout,
                              QDialogButtonBox,
+                             QComboBox,
                              )
 
 class Dialog(QDialog):
@@ -21,11 +22,18 @@ class Dialog(QDialog):
         self.setWindowTitle("Sign In")
         dlgLayout = QVBoxLayout()
         formLayout = QFormLayout()
+        
+        self.cb = QComboBox()
+        self.cb.addItems(["English", "Luganda", "Kiswahili", "French", "Spanish"])
+        self.cb.currentIndexChanged.connect(self.selectionChange)
+        formLayout.addWidget(self.cb)
 
         formLayout.addRow("Name:", QLineEdit())
         formLayout.addRow("Age:", QLineEdit())
         formLayout.addRow("Fun Fact:", QLineEdit())
         formLayout.addRow("Sex:", QLineEdit())
+        formLayout.addRow("Language:", self.cb)
+    
         
         dlgLayout.addLayout(formLayout)
         btns = QDialogButtonBox()
@@ -33,6 +41,13 @@ class Dialog(QDialog):
             QDialogButtonBox.Cancel | QDialogButtonBox.Ok)
         dlgLayout.addWidget(btns)
         self.setLayout(dlgLayout)
+        
+    def selectionChange(self, i):
+        print("Items in the list are :")
+        for count in range(self.cb.count()):
+            print (self.cb.itemText(count))
+        print ("Current index",i,"selection changed ",self.cb.currentText())
+        
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
