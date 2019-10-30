@@ -1,4 +1,4 @@
-![Alt text](https://user-images.githubusercontent.com/39129473/67823379-d0649c80-fa90-11e9-9998-a7037e5cd0a8.png?raw=true "My Calculator")
+![Alt text](https://user-images.githubusercontent.com/39129473/67823621-cabb8680-fa91-11e9-8a52-9ef89a4069cc.png?raw=true "My Calculator")
 
 # desktop-calculator
 This is a simple desktop calculator that performs basic math orperations such as Addition, Subtraction, Multiplication and division.
