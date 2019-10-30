@@ -13,7 +13,7 @@ class PyCalc(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Calculator')
-        self.setWindowIconText("PyCalc")
+        self.title = self.setWindowIconText("PyCalc")
         self.setFixedSize(400, 400)
         self.generalLayout = QVBoxLayout()
         self.centralWidget = QWidget(self)
@@ -26,6 +26,7 @@ class PyCalc(QMainWindow):
         self.display = QLineEdit()
         # set display size
         self.display.setFixedHeight(50)
+        self.display.setStyleSheet("font-size: 35px;font-family: serifFont;color: blue;background-color: white;")
         self.display.setAlignment(Qt.AlignRight)
         self.display.setReadOnly(True)
         # add display to general Layout
@@ -53,6 +54,7 @@ class PyCalc(QMainWindow):
                }
         for button, buttonPos in btns.items():
             self.btns[button] = QPushButton(button)
+            self.btns[button].setStyleSheet("font-size: 20px;font-family: serifFont;color: white;background-color: gray;")
             self.btns[button].setFixedSize(80, 80)
             btnsLayout.addWidget(self.btns[button], buttonPos[0], buttonPos[1])
         # add btns layout to the general layout
@@ -70,5 +72,3 @@ class PyCalc(QMainWindow):
     def clearDisplay(self):
         """Clear the display."""
         self.setDisplayText('')    
-    
-
